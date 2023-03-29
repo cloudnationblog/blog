@@ -1,8 +1,15 @@
 ---
 permalink: /about/
 title: "About"
+author_profile: false
 ---
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
+Welcome to CloudNation!
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+We're just a bunch of tech geeks who love tinkering with cloud computing, networking, Linux, AWS, security, and all sorts of other cool stuff. We created this blog as a way to share our knowledge, experience, and enthusiasm with the wider tech community.
+
+At CloudNation, our content is informed by our hands-on experience with a variety of technologies and our extensive research into various topics that pique our interest. Our aim is to provide a comprehensive resource for technical issues and cover topics that may not be readily accessible on the internet.
+
+We share all our code as open-source on our GitHub repo. We'll continue to add new code to our repository, so be sure to check it out and let us know if you have any suggestions or contributions.
+
+Thanks for stopping by, and we hope you enjoy our blog. If you have any suggestions, comments, or just want to say hi, feel free to drop us a line!
