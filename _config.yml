@@ -1,7 +1,9 @@
 ---
-title: Cloud Nation
+title: CloudNation
 url: https://cloudnation.blog
-subtitle: "Cloud, Networking, Linux.."
+logo: "/assets/images/CloudNation_Logo_Grey.png"
+masthead_title: " "
+# subtitle: "Cloud, Networking, Linux.."
 title_separator: "|"
 email: info@cloudnation.blog
 description: >- # this means to ignore newlines until "baseurl:"
