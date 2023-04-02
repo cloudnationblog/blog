@@ -4,7 +4,7 @@ last_modified_date: 2023-0401 00:06:17 +0000
 categories: ["Fortinet"]
 description: Learn how FortiOS Webfilter categorizes websites based on their content using SNI, a TLS protocol extension. Discover the process of how Fortigate extracts the hostname and queries the Fortiguard servers to categorize websites. Find out how to verify the category of a website and explore the importance of SNI in securely hosting multiple websites or services on a single IP address.
 header:
-    teaser: /images/blog/SNI-client-hello.PNG
+    teaser: /images/blog/SNI-client-hello.png
 ---
 
 FortiOS Webfilter is a powerful tool used by network administrators to control and monitor web traffic on their networks. One of its key features is its ability to categorize websites based on their content. In this blog post, we'll take a closer look at how FortiOS Webfilter makes these categorization decisions.
