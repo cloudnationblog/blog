@@ -25,7 +25,9 @@ If you want to change the DNS settings to your internal servers for any reason, 
 {% include lightbox.html src="Important-FGT-DNS.png" data="group" %}
  
 ### Ports required by Fortigate ->
-If you have any upstream device make sure below mentioned ports are open .
+If you have any upstream device make sure below mentioned ports are open ->
+
+
     - 8008 
     - 8010
     - 8020 
