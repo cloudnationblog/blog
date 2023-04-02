@@ -28,11 +28,11 @@ If you want to change the DNS settings to your internal servers for any reason, 
 If you have any upstream device make sure below mentioned ports are open ->
 
 
-    - 8008 
-    - 8010
-    - 8020 
+ * 8008 
+ * 8010
+ * 8020 
 
-    Here is explanation of ports.
+ Here is explanation of ports.
 
-    Port 8008 is used by FortiGate to authenticate with FortiGuard when an HTTP override request occurs for FortiGuard web filter HTTP override authentication. Port 8010 is used for HTTPS override requests for FortiGuard web filter HTTPS override authentication. Port 8020 is used for FortiGuard web filter warning authentication.
+ Port 8008 is used by FortiGate to authenticate with FortiGuard when an HTTP override request occurs for FortiGuard web filter HTTP override authentication. Port 8010 is used for HTTPS override requests for FortiGuard web filter HTTPS override authentication. Port 8020 is used for FortiGuard web filter warning authentication.
 
