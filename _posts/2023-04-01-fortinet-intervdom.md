@@ -5,7 +5,7 @@ categories: ["Fortinet"]
 description: This blog post explores the benefits and use cases of intervdom links, a powerful feature of Fortinet's FortiGate firewall platform. Intervdom links enable communication between virtual domains (VDOMs) on a single FortiGate device while maintaining separation and security between them, providing organizations with greater flexibility and control over their network environments. The post explains the two types of intervdom links available on FortiGate, the NPU-based VDOM link and the CPU-based inter-VDOM link, and how to enable multivdom on FortiGate.
 
 header:
-   teaser: /images/blog/intervdom.png
+   teaser: /images/blog/intervdom0.png
 
 
 ---
@@ -20,27 +20,26 @@ Some of the common use cases for intervdom links include:
 3. Streamlining network architecture by consolidating multiple physical devices into a single FortiGate device.
 3. Facilitating easier management and configuration of multiple VDOMs within a single FortiGate device.
 
-### What is intervdom link?
+### What is intervdom link
 
 VDOM links enable internal communication between VDOMs without requiring additional physical interfaces. Inter-VDOM routing refers to the communication between VDOMs, which is facilitated by VDOM links - virtual interfaces connecting VDOMs. Each VDOM link includes a pair of interfaces, with one connected to each VDOM, forming the endpoints of the inter-VDOM connection.
 
-### Types of Intervdom link Fortigate->
+### Types of Intervdom link Fortigate
  1. NPU-based VDOM Link: 
  This type of interface provides a dedicated link between two VDOMs within the same FortiGate device. It is optimized for intra-device traffic between VDOMs and is designed to offload traffic processing from the CPU to the NPU for improved performance and reduced latency.
 
  2. CPU based inter-VDOM : 
   It refer to the use of software-based interfaces to connect VDOMs within a FortiGate firewall device. In contrast to NPU-based interfaces, CPU-based interfaces rely on the device's CPU for packet processing and forwarding  and  doesnot support offloading traffic on NPU.
 
-### How to enable Multivdom on fortigate :
+### How to enable Multivdom on fortigate
  
     ```
-    shell
     config system global
     set vdom-mode multi-vdom  (This should be typed in manually. There is no auto-display.)
     End 
     ```
 
-### Use case of intervdom link->
+### Use case of intervdom link
 
 {% include lightbox.html src="intervdom0.png" data="group" %}
  
@@ -80,7 +79,7 @@ end
 end 
 ```
 
-### Intervdom link configuration on Global ->
+### Intervdom link configuration on Global 
  
 {% include lightbox.html src="intervdom.png" data="group" %}
 
@@ -94,7 +93,7 @@ Make sure you have required policy to route traffic from Customer vdom to root v
 
  {% include lightbox.html src="intervdom3.png" data="group" %}
 
-### Configuration on Root Vdom->
+### Configuration on Root Vdom
 
 To enable traffic from the "Customer1" VDOM to reach the internet via Port 1 on the "Root" VDOM, as well as traffic from Port 2 on the "Customer1" VDOM to reach Port 1, we need to create two policies on the "Root" VDOM.
  
@@ -111,7 +110,7 @@ PING 1.1.1.1 (1.1.1.1): 56 data bytes
 64 bytes from 1.1.1.1: icmp_seq=1 ttl=53 time=7.6 ms
 64 bytes from 1.1.1.1: icmp_seq=2 ttl=53 time=9.1 ms
 
-### Lets look at packet sniffer ->
+### Lets look at packet sniffer 
 
 Fortigate# diagnose  sniffer packet  any 'icmp and host 1.1.1.1' 4 0 l
 Using Original Sniffing Mode
