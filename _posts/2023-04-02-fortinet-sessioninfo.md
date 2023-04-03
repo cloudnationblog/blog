@@ -17,7 +17,7 @@ When you view the session information on your FortiGate firewall, you may notice
 {% include lightbox.html src="fortigate-session.png" data="group" %}
  
 
-### Proto =17 
+### Proto  
 
  These protocol numbers are used to identify the protocol being used in network traffic.Here are some common protocol numbers used in networking:
 
@@ -55,7 +55,8 @@ When you view the session information on your FortiGate firewall, you may notice
  
  When traffic passes through a shaper, the FortiGate creates a session entry that includes information about the shaper applied to the traffic. This information can include the name of the shaper, the bandwidth limits set by the shaper, and the status of the shaper. In the listed session no shapers is applied.
 
-### Source and Destination ->
+### Source and Destination 
+
  From this flag, we can see that source and destination is session . 
  hook=out dir=org act=noop 10.9.10.29:2372->192.168.113.192:53(0.0.0.0:0) 
  
@@ -64,11 +65,11 @@ When you view the session information on your FortiGate firewall, you may notice
  Reply ->
  hook=in dir=reply act=noop 192.168.113.192:53->10.9.10.29:2372(0.0.0.0:0)
 
-### Policy_id-> 
+### Policy_id
 
  In this case, you can determine which policy ID a session is hitting, and in this instance, it is 0, indicating that the session is local.
 
-### Sdwan_member-
+### Sdwan_member
 
  This flag indicates which SDWAN member device is being used to send out traffic. In this example, sdwan_mbr_seq=1 shows that it is using port1.
 
@@ -81,6 +82,6 @@ When you view the session information on your FortiGate firewall, you may notice
  Member(2): interface: port2, gateway: 10.9.47.254, priority: 0, weight: 0
  ```
 
-### SDWAN_service_id-> 
+### SDWAN_service_id
 
  The SDWAN_service_id specifies which SDWAN rule the session is hitting. In this case ,SDWAN_service_id=0 which states that it is using implicit SDWAN rule.
