@@ -38,15 +38,15 @@ When you view the session information on your FortiGate firewall, you may notice
 
  The different states that a session can go through include:
 
- NEW: This state indicates that the session is new and has not yet been established.
+ **NEW** : This state indicates that the session is new and has not yet been established.
 
- ESTABLISHED: This state indicates that the session has been established and is currently active.
+ **ESTABLISHED** : This state indicates that the session has been established and is currently active.
 
- FIN-WAIT: This state indicates that the session is in the process of being terminated, with the client sending a FIN (finish) packet to the server.
+ **FIN-WAIT** : This state indicates that the session is in the process of being terminated, with the client sending a FIN (finish) packet to the server.
 
- CLOSE-WAIT: This state indicates that the session is in the process of being terminated, with the server sending a FIN packet to the client.
+ **CLOSE-WAIT** : This state indicates that the session is in the process of being terminated, with the server sending a FIN packet to the client.
 
- TIME-WAIT: This state indicates that the session has been terminated, but the FortiGate is waiting for any remaining packets to arrive before closing the session.
+ **TIME-WAIT**  This state indicates that the session has been terminated, but the FortiGate is waiting for any remaining packets to arrive before closing the session.
 
  Please refer to the knowledge base (KB) article below to review the specifications of each number
  (https://community.fortinet.com/t5/FortiGateTroubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)
