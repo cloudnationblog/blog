@@ -55,7 +55,6 @@ We make no representations or warranties about the suitability or quality of any
 
 Please note that once you leave our website, we are not responsible for the content or privacy practices of external websites. We encourage you to review the privacy policies and terms of use of any external websites before providing any personal information or engaging in any transactions.
 
-
 ### Changes to the Terms
 
 We reserve the right to modify or update these terms of use at any time. Any changes will be posted on this page.
