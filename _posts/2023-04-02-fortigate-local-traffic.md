@@ -27,7 +27,7 @@ We have configured port1 and port2 as member of SDWAN.
 
 You can configure performance SLAs for both WAN interfaces to ensure that all traffic is automatically rerouted in the event of an interface failure. For example, if port1 goes down, the performance SLA will trigger failover and then only the LTE interface will be used for FortiGuard traffic.
 
- {% include lightbox.html src="nterface-local1-.png" data="group" %}
+ {% include lightbox.html src="interface-local1-.png" data="group" %}
 
 
 ### SDWAN Rule 
