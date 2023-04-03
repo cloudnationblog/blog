@@ -15,17 +15,19 @@ For example, suppose you have two WAN interfaces, one of which is an LTE interfa
 
 In the below example, we have two WAN interface port1 and port2. Port1 is Fiber connection and Port2 is LTE connected which we just to use as backup only when port1 goes down.
 
-{% include lightbox.html src="interface-local-2.png" data="group" %}
+
 
 ### SDWAN Configuration
 
 We have configured port1 and port2 as member of SDWAN. 
 
+{% include lightbox.html src="interface-local-2.png" data="group" %}
+
 ### Performance SLA
 
 You can configure performance SLAs for both WAN interfaces to ensure that all traffic is automatically rerouted in the event of an interface failure. For example, if port1 goes down, the performance SLA will trigger failover and then only the LTE interface will be used for FortiGuard traffic.
 
- {% include lightbox.html src="interface-local-1.png" data="group" %}
+ {% include lightbox.html src="nterface-local1-.png" data="group" %}
 
 
 ### SDWAN Rule 
