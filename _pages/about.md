@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 title: "About"
-author_profile: false
+classes: wide
 ---
 
 Welcome to CloudNation!
@@ -13,3 +13,5 @@ At CloudNation, our content is informed by our hands-on experience with a variet
 We share all our code as open-source on our GitHub repo. We'll continue to add new code to our repository, so be sure to check it out and let us know if you have any suggestions or contributions.
 
 Thanks for stopping by, and we hope you enjoy our blog. If you have any suggestions, comments, or just want to say hi, feel free to drop us a line!
+
+- :email: {{ site.email }}

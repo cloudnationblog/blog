@@ -1,6 +1,6 @@
 ---
 title:  "Foreman and Smart-Proxy Installation"
-last_modified_date: 2019-02-10 21:35:31 +0000
+last_modified_at: 2019-02-10
 categories: ["DevOps"]
 description: Foreman is an open source complete life cycle systems management tool for provisioning, configuring and monitoring of physical and virtual servers.
 ---
@@ -126,9 +126,9 @@ bundle install --without development test krb5 puppet_proxy_legacy bmc libvirt
 
 ### Configure Windows Smart-Proxy
 
-- Generate Certificates for the smart-proxy on the Puppet CA server. 
+- Generate Certificates for the smart-proxy on the Puppet CA server.
     - *puppet cert generate server-proxy.mydomain.com*
-- Copy the proxy's **private key** and **certificate file** plus the **ca.pem** file from the Puppet Master to a location on the Smart Proxy server(C:\\smart-proxy-develop\\ssl) 
+- Copy the proxy's **private key** and **certificate file** plus the **ca.pem** file from the Puppet Master to a location on the Smart Proxy server(C:\\smart-proxy-develop\\ssl)
     - Files: /*etc/puppetlabs/puppet/ssl/certs/server-proxy.mydomain.com.pem, /etc/puppetlabs/puppet/ssl/certs/ca.pem, /etc/puppetlabs/puppet/ssl/private\_keys/server\_dc.mydomain.com.pem*{% include lightbox.html src="image-1571537238761.png" data="group" %}
 - Run the following commands in a command prompt to create valid configuration files for the feature to enable, which we will later edit.
 

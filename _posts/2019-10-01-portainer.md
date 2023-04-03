@@ -1,6 +1,6 @@
 ---
 title:  "Portainer - GUI Management Tool for Docker"
-last_modified_date: 2019-10-01 19:11:39 +0000
+last_modified_at: 2019-10-01
 categories: ["Linux"]
 description: Portainer is a lightweight management UI for Docker. It allows most of the features of Docker to be performed through the graphical web interface while also adding additional functionality such as duplicating containers, User management/Authentication, access control, etc.
 ---

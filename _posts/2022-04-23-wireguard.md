@@ -1,11 +1,11 @@
 ---
 title:  "WireGuard VPN Setup on AWS LightSail"
-last_modified_date: 2022-04-23 13:30:00 +0000
+last_modified_at: 2022-04-23
 categories: ["Networking"]
 description: Wireguard is a very powerful and easy to use UDP-based VPN tunneling protocol.
 header:
-   teaser: /images/blog/Topology_WireGuard.jpg
-   
+  teaser: /images/blog/Topology_WireGuard.jpg
+  og_image: /images/blog/Topology_WireGuard.jpg
 ---
 
 **WireGuard** is an easy to use and secure VPN tunneling protocol. It utilizes UDP as it's communication protocol. The overhead carried by WireGuard's encryption+encapsulation is very low as compared to other well-known VPN protocols like IPSec, SSL-VPN, which makes WireGuard's performance far superior than it's counterparts.
@@ -17,11 +17,9 @@ The primary reasons you would want to run your own VPN server:
  - Have control and visibility into your network traffic, such as the geo-location you want to use the VPN from.
  - Ensure privacy and security. Although VPN providers claim that customer data is kept secure and private, it is hard to verify how much truth is in this statement. With WireGuard, you are in control of the server the VPN runs from, and as long as the server is secured from unauthorized access, you can be assured of the network's security.
 
-**AWS Lightsail** is a low-cost and reliable VPS service provided by AWS. The first three months of service are free for new users. Multiple regions are available to create the instances in. There is no official number that AWS has documented on the maximum/minimum bandwidth on LightSail instances, however, during my testing, I have been able to get close to 100Mbps upload/download with little variation. This is more than enough to run VPN services for a small number of users. 
+**AWS Lightsail** is a low-cost and reliable VPS service provided by AWS. The first three months of service are free for new users. Multiple regions are available to create the instances in. There is no official number that AWS has documented on the maximum/minimum bandwidth on LightSail instances, however, during my testing, I have been able to get close to 100Mbps upload/download with little variation. This is more than enough to run VPN services for a small number of users.
 
 Provided all these benefits, we will be setting up WireGuard on AWS Lightsail.
-
----
 
 ## Network Topology
 
@@ -32,8 +30,6 @@ Provided all these benefits, we will be setting up WireGuard on AWS Lightsail.
 - Mobile device running WireGuard.
 
 With everything setup, we should be able to push all internet traffic from our mobile device, out through the LightSail instances. The home network will also be accessible to the remotely connected mobile device. Our WireGuard client will be able to talk to services in the home network, such as DNS, file shares, etc.
-
----
 
 ## Configure WireGuard
 
@@ -96,20 +92,20 @@ Each server/client in the WireGuard network has a key pair(public/private) which
    PrivateKey = $(cat ~/server_prkey)
    PostUp = iptables -t nat -A POSTROUTING -s 10.100.52.96/28 -o eth0 -j MASQUERADE
    PostDown = iptables -t nat -D POSTROUTING -s 10.100.52.96/28 -o eth0 -j MASQUERADE
-   
+
    # Client 1
    [Peer]
    PublicKey = $(cat ~/client1_pubkey)
    AllowedIPs = 10.100.52.98/32
    EOF
-   
+
    cat << EOF >~/wg_client.conf
    [Interface]
    Address = 10.100.52.98/28
    ListenPort = 58820
    PrivateKey = $(cat ~/client1_prkey)
    DNS = 1.1.1.1
-   
+
    # Server
    [Peer]
    PublicKey = $(cat ~/server_pubkey)
@@ -135,7 +131,7 @@ Each server/client in the WireGuard network has a key pair(public/private) which
 
 On Step. 3 of the previous section, we also created a client's configuration file. Having this configuration on the server doesn't make sense, the only reason it was done here was for simplicity's sake. We can generate a QR code from the server itself and scan it to load the configuration on the client.
 
-1. Install `qrencode` on the server. 
+1. Install `qrencode` on the server.
    ```shell
    apt install qrencode
    ```
@@ -147,11 +143,9 @@ On Step. 3 of the previous section, we also created a client's configuration fil
 
 At this point, all the internet traffic from the mobile device is being routed through WireGuard. This can be verified by checking it's public IP, to do this search for something like 'my ip' on Google, and this should be the IP of your Lightsail instance.
 
----
-
 ## Additional Notes
 
-Adding another client to the mix is easy. 
+Adding another client to the mix is easy.
 
 1. Generate a new key pair with: `wg genkey | tee client_prkey | wg pubkey >client_pubkey`
 2. Add a new peer to the server's configuration file and specify it's public key WG IP address and reload the wg-quick service: `systemctl reload wg-quick@wg0`
@@ -172,7 +166,7 @@ The above will solve the routing on the server side in that it will route all tr
    Address = 10.100.52.100/32
    PostUp = iptables -t nat -A POSTROUTING -s 10.100.52.96/28 -o eth0 -j MASQUERADE
    PostDown = iptables -t nat -D POSTROUTING -s 10.100.52.96/28 -o eth0 -j MASQUERADE
-   
+
    ## Server
    [Peer]
    PublicKey = xxxxxxxxxxxxxxxxxx=
@@ -192,7 +186,6 @@ We created a few files on the WireGuard server that are no longer needed. To del
 rm ~/{server_pub,server_pr,client1_pr,client1_pub}key
 rm ~/wg_client.conf
 ```
----
 
 ## Conclusion
 
