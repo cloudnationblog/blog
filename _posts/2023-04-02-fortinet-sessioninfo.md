@@ -47,11 +47,12 @@ When you view the session information on your FortiGate firewall, you may notice
  **CLOSE-WAIT** : This state indicates that the session is in the process of being terminated, with the server sending a FIN packet to the client.
 
  **TIME-WAIT**  This state indicates that the session has been terminated, but the FortiGate is waiting for any remaining packets to arrive before closing the session.
-
+ 
  Please refer to the knowledge base (KB) article below to review the specifications of each number
- (https://community.fortinet.com/t5/FortiGateTroubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)
 
-### Shapers-> 
+ [Fortinet](https://community.fortinet.com/t5/FortiGateTroubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)
+
+### Shapers 
  
  When traffic passes through a shaper, the FortiGate creates a session entry that includes information about the shaper applied to the traffic. This information can include the name of the shaper, the bandwidth limits set by the shaper, and the status of the shaper. In the listed session no shapers is applied.
 
@@ -77,8 +78,8 @@ When you view the session information on your FortiGate firewall, you may notice
 
  ```
  #di sys  sdwan member
- Member(1): interface: port1, gateway: 10.9.15.254, priority: 0, weight: 0
- Member(2): interface: port2, gateway: 10.9.47.254, priority: 0, weight: 0
+ Member(1): interface: port1, gateway: x.x.x.x, priority: 0, weight: 0
+ Member(2): interface: port2, gateway: x.x.x.x, priority: 0, weight: 0
  ```
 
 ### SDWAN_service_id
