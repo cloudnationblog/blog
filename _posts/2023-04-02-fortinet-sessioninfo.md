@@ -76,7 +76,6 @@ When you view the session information on your FortiGate firewall, you may notice
  Members can be seen using below command  
 
  ```
- shell
  #di sys  sdwan member
  Member(1): interface: port1, gateway: 10.9.15.254, priority: 0, weight: 0
  Member(2): interface: port2, gateway: 10.9.47.254, priority: 0, weight: 0
