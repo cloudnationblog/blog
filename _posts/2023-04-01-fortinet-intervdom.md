@@ -104,21 +104,35 @@ To enable traffic from "Customer1" to reach the internet via Port 1 on the "Root
  {% include lightbox.html src="intervdom5.png" data="group" %}
  
 After making desired changes, we can see that we can successfully ping from Customer domain.
+
 Fortigate (Customer1) # execute  ping 1.1.1.1
+
 PING 1.1.1.1 (1.1.1.1): 56 data bytes
+
 64 bytes from 1.1.1.1: icmp_seq=0 ttl=53 time=6.8 ms
+
 64 bytes from 1.1.1.1: icmp_seq=1 ttl=53 time=7.6 ms
+
 64 bytes from 1.1.1.1: icmp_seq=2 ttl=53 time=9.1 ms
 
 ### Lets look at packet sniffer 
 
 Fortigate# diagnose  sniffer packet  any 'icmp and host 1.1.1.1' 4 0 l
+
 Using Original Sniffing Mode
+
 interfaces=[any]
+
 filters=[icmp and host 1.1.1.1]
+
 2023-03-29 22:03:50.457462 Intervdom0 out 10.10.10.1 -> 1.1.1.1: icmp: echo request
+
 2023-03-29 22:03:50.457470 Intervdom1 in 10.10.10.1 -> 1.1.1.1: icmp: echo request
+
 2023-03-29 22:03:50.457552 port1 out 10.9.10.92 -> 1.1.1.1: icmp: echo request
+
 2023-03-29 22:03:50.465334 port1 in 1.1.1.1 -> 10.9.10.92: icmp: echo reply
+
 2023-03-29 22:03:50.465377 Intervdom1 out 1.1.1.1 -> 10.10.10.1: icmp: echo reply
+
 2023-03-29 22:03:50.465381 Intervdom0 in 1.1.1.1 -> 10.10.10.1: icmp: echo reply
