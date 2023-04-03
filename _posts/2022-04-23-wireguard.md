@@ -5,7 +5,6 @@ categories: ["Networking"]
 description: Wireguard is a very powerful and easy to use UDP-based VPN tunneling protocol.
 header:
    teaser: /images/blog/Topology_WireGuard.jpg
-   image: /images/blog/Topology_WireGuard.jpg
 ---
 
 **WireGuard** is an easy to use and secure VPN tunneling protocol. It utilizes UDP as it's communication protocol. The overhead carried by WireGuard's encryption+encapsulation is very low as compared to other well-known VPN protocols like IPSec, SSL-VPN, which makes WireGuard's performance far superior than it's counterparts.
