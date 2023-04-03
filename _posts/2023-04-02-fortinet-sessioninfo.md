@@ -50,7 +50,7 @@ When you view the session information on your FortiGate firewall, you may notice
  
  Please refer to the knowledge base (KB) article below to review the specifications of each number
 
- [Fortinet](https://community.fortinet.com/t5/FortiGateTroubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)
+ [Fortinet](https://community.fortinet.com/t5/FortiGate/Troubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)
 
 ### Shapers 
  
