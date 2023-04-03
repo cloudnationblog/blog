@@ -21,13 +21,13 @@ When you view the session information on your FortiGate firewall, you may notice
 
  These protocol numbers are used to identify the protocol being used in network traffic.Here are some common protocol numbers used in networking:
 
- TCP: 6
- UDP: 17
- ICMP: 1
- GRE: 47
- ESP: 50
- AH: 51
- IP: 4
+ * TCP: 6
+ * UDP: 17
+ * ICMP: 1
+ * GRE: 47
+ * ESP: 50
+ * AH: 51
+ * IP: 4
 
 
 ### Proto_state 
@@ -51,7 +51,7 @@ When you view the session information on your FortiGate firewall, you may notice
  Please refer to the knowledge base (KB) article below to review the specifications of each number
  (https://community.fortinet.com/t5/FortiGateTroubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)
 
- ### Shapers-> 
+### Shapers-> 
  
  When traffic passes through a shaper, the FortiGate creates a session entry that includes information about the shaper applied to the traffic. This information can include the name of the shaper, the bandwidth limits set by the shaper, and the status of the shaper. In the listed session no shapers is applied.
 
