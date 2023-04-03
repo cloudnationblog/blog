@@ -10,9 +10,6 @@ header:
 
 ---
 
-## Fortigate session table->
-
-
 When troubleshooting network issues, it is often useful to review the session information on your FortiGate firewall to gain insight into what is happening on your network. For example, if you are experiencing issues with web traffic, you can review the session information for a web session to see if there are any problems with the connection.
 
 When you view the session information on your FortiGate firewall, you may notice several flags associated with each session. These flags can provide useful information about the state of the session and can be used to troubleshoot network issues. This blog post will provide detailed information on the various flags.
