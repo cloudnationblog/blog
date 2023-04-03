@@ -1,6 +1,6 @@
 ---
 title:  "Exploring FortiGate's Intervdom Links: A Comprehensive Guide"
-last_modified_date: 2023-0401 00:06:17 +0000
+last_modified_at: 2023-04-02
 categories: ["Fortinet"]
 description: This blog post explores the benefits and use cases of intervdom links, a powerful feature of Fortinet's FortiGate firewall platform. Intervdom links enable communication between virtual domains (VDOMs) on a single FortiGate device while maintaining separation and security between them, providing organizations with greater flexibility and control over their network environments. The post explains the two types of intervdom links available on FortiGate, the NPU-based VDOM link and the CPU-based inter-VDOM link, and how to enable multivdom on FortiGate.
 

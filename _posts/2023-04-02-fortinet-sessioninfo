@@ -1,6 +1,6 @@
 ---
 title:  "The Importance of FortiGate Session Table Flags in Network Troubleshooting"
-last_modified_date: 2023-0401 00:06:17 +0000
+last_modified_at: 2023-04-02
 categories: ["Fortinet"]
 description: Looking to troubleshoot network issues on your FortiGate firewall? Gain valuable insights by reviewing the session table, which provides information about the state of each session passing through your firewall. This blog post delves into the various flags you may encounter, such as Proto and Proto_state, which indicate the protocol number being used and the current state of the connection for a given session. Other flags, such as Shapers, Source and Destination, Reply, Policy_id, SDWAN_member, and SDWAN_service_id, provide further details about the session and can be useful in diagnosing network issues. Learn more about these flags and how they can be used to troubleshoot network problems by checking out the provided knowledge base article.
 
@@ -53,7 +53,7 @@ When you view the session information on your FortiGate firewall, you may notice
  TIME-WAIT: This state indicates that the session has been terminated, but the FortiGate is waiting for any remaining packets to arrive before closing the session.
 
  Please refer to the knowledge base (KB) article below to review the specifications of each number
- (https://community.fortinet.com/t5/FortiGate/Troubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)
+ (https://community.fortinet.com/t5/FortiGateTroubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)
 
  ### Shapers-> 
  
