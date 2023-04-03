@@ -1,6 +1,6 @@
 ---
 title:  "Unattended Provisioning - Windows"
-last_modified_date: 2019-03-27 20:30:33 +0000
+last_modified_at: 2019-03-27
 categories: ["DevOps"]
 description: Foreman can be used to perform unattended provisioning of Windows system using wimaging or WDS.
 ---

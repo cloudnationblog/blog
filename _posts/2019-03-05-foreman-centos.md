@@ -1,6 +1,6 @@
 ---
 title:  "Unattended Provisioning - CentOS Linux"
-last_modified_date: 2019-03-05 18:14:11 +0000
+last_modified_at: 2019-03-05
 categories: ["DevOps"]
 description: Unattended Installation means Operating System installation without any user intervention. Foreman by default is shipped with all the things required to do a complete unattended install of major Linux distributions.
 ---
@@ -105,7 +105,7 @@ The Operating System section brings all different OS specific configurations tog
 3. Select Partition Table. {% include lightbox.html src="image-1571562170971.png" data="group" %}
 4. Select the Local installation Media. {% include lightbox.html src="image-1571562241765.png" data="group" %}
 5. **Submit.**
-6. We will now setup the association between the Provision Templates and Operating System. 
+6. We will now setup the association between the Provision Templates and Operating System.
     1. Go to Hosts&gt;Provisioning Templates&gt;*NewTempalteName*&gt;Association. Select the newly added Operating System and move it to the right. Do this for all the three cloned templates.
     2. Back to Hosts&gt;Operating Systems. Select the newly added OS.
     3. Under Templates, select all the relevant templates and complete the association by clicking **Submit.**{% include lightbox.html src="image-1571562521812.png" data="group" %}
@@ -117,14 +117,14 @@ The Operating System section brings all different OS specific configurations tog
 Before, we go ahead and create the new host, let's first create a Host Group and this will minimize the requirements to be filled on the **New Host** page. We will just add the new host to the Host group and rest of the information will be automatically filled.
 
 1. Configure&gt;Host Groups&gt;Create Host Group.
-2. Enter the information created in the previous sections under all tabs. 
+2. Enter the information created in the previous sections under all tabs.
     1. Host Group:
-        
+
         {% include lightbox.html src="image-1571563738189.png" data="group" %}
     2. Network: {% include lightbox.html src="image-1571563615098.png" data="group" %}
     3. Operating System: {% include lightbox.html src="image-1571563817678.png" data="group" %}Set the Root Password. The PXE loader selection determines the PXE config file to be used for the instance. This file is then added to the instance's directory under pxelinux.cfg directory.
     4. **Parameters** are user defined properties. The parameters that a template accepts are mentioned in the template code. We will add some custom settings which will then be set inside the template during provisioning. {% include lightbox.html src="image-1571564051727.png" data="group" %}Following is an example of a Template which lists the parameters it accepts:
-        
+
         {% include lightbox.html src="image-1571564150394.png" data="group" %}
     5. **Submit.**
 
@@ -132,7 +132,7 @@ Before, we go ahead and create the new host, let's first create a Host Group and
 
 1. Hosts&gt;Create Host.
 2. Enter the Hostname. Select the Host Group and it should automatically fill in all the information under all tabs. {% include lightbox.html src="image-1571564378732.png" data="group" %}
-    
+
     {% include lightbox.html src="image-1571564454063.png" data="group" %}
 3. **Submit.**
 4. <span style="text-decoration: underline;">**Foreman starts the build process.**</span>{% include lightbox.html src="image-1571564516704.png" data="group" %}
@@ -152,6 +152,6 @@ The URL to download the Puppet 6 repository inside the **puppetlabs6\_repo snipp
 
 - Hosts&gt;Provisioning Templates&gt;puppetlabs6\_repo
 - Change the **repo\_name** and **repo\_subdir** in the Puppet 6 section as follows: {% include lightbox.html src="image-1571565660630.png" data="group" %}
-    
+
     The Hosts should now be provisioned with an updated version of Puppet.
 

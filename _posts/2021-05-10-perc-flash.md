@@ -1,6 +1,6 @@
 ---
 title:  "Flash Perc H710P Mini RAID Controller to IT Mode"
-last_modified_date: 2021-05-10 23:08:10 +0000
+last_modified_at: 2021-05-10
 description: Flashing IT Mode on Perc H710P Mini RAID Controller.
 ---
 
@@ -13,16 +13,16 @@ To flash the controller, it will require a FreeDOS and a Linux ISO pre-built wit
 2. Flash the downloaded ISOs to a USB. (I tried Ventoy to use both ISOs from the same USB, but it didn't seem to support these OS builds).
 3. Boot the FreeDOS image and get the card details to perform the appropriate steps. **Take note of the SAS address.**
     - `info`
-4. Run the pre built commands to flash the firmware after identifying the correct card. For example, to flash the H710P D1 Mini: 
+4. Run the pre built commands to flash the firmware after identifying the correct card. For example, to flash the H710P D1 Mini:
     - `PD1CROSS`
     - `reboot`
 5. Boot into the Linux live environment and start a root shell.
-6. Run the Flashing script. 
+6. Run the Flashing script.
     - `D1-H710`
 7. If the above finished successfully, reboot to the Linux image and program the SAS address back.
-8. To program the SAS address back, start a root shell and run the command with SAS ID matching as noted in Step 3. 
+8. To program the SAS address back, start a root shell and run the command with SAS ID matching as noted in Step 3.
     - setsas *SAS\_ID*
-9. If you need to boot from the drives connected to the controller, flash a boot image. 
+9. If you need to boot from the drives connected to the controller, flash a boot image.
     - Flash BIOS image - `flashboot /root/Bootloaders/mptsas2.rom`
     - Flash UEFI image - `flashboot /root/Bootloaders/x64sas2.rom`
 

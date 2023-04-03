@@ -7,9 +7,9 @@ masthead_title: " "
 title_separator: "|"
 email: info@cloudnation.blog
 description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to CloudNation, your one-stop destination for expert insights, practical tips, and the latest news on cloud computing, networking, Linux, AWS, security, and other cutting-edge tech topics. 
-  Our blog features a team of seasoned tech enthusiasts who share their knowledge, experience, and insights to help you stay informed and up-to-date in the fast-paced world of technology. 
-  From deep dives into the latest trends and emerging technologies to practical how-to guides and industry news, CloudNation has everything you need to stay on top of your game. 
+  Welcome to CloudNation, your one-stop destination for expert insights, practical tips, and the latest news on cloud computing, networking, Linux, AWS, security, and other cutting-edge tech topics.
+  Our blog features a team of seasoned tech enthusiasts who share their knowledge, experience, and insights to help you stay informed and up-to-date in the fast-paced world of technology.
+  From deep dives into the latest trends and emerging technologies to practical how-to guides and industry news, CloudNation has everything you need to stay on top of your game.
   Join us today and discover a wealth of valuable resources for all your tech needs.
 twitter_username: cloudnationblog
 github_username: cloudnationblog
@@ -72,6 +72,9 @@ footer:
     - label: ""
       icon: "fab fa-fw fa-github"
       url: "https://github.com/cloudnationblog/"
+    - label: "Privacy Policy & Terms"
+      icon: "fas fa-fw fa-lock"
+      url: /policy-terms/
     # - label: ""
     #   icon: "fab fa-fw fa-instagram"
     #   url: "https://instagram.com/"
@@ -97,7 +100,7 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: true
+      author_profile: false
 
 category_archive:
   type: liquid
