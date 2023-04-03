@@ -4,7 +4,8 @@ last_modified_at: 2022-04-23
 categories: ["Networking"]
 description: Wireguard is a very powerful and easy to use UDP-based VPN tunneling protocol.
 header:
-   teaser: /images/blog/Topology_WireGuard.jpg
+  teaser: /images/blog/Topology_WireGuard.jpg
+  og_image: /images/blog/Topology_WireGuard.jpg
 ---
 
 **WireGuard** is an easy to use and secure VPN tunneling protocol. It utilizes UDP as it's communication protocol. The overhead carried by WireGuard's encryption+encapsulation is very low as compared to other well-known VPN protocols like IPSec, SSL-VPN, which makes WireGuard's performance far superior than it's counterparts.
@@ -20,8 +21,6 @@ The primary reasons you would want to run your own VPN server:
 
 Provided all these benefits, we will be setting up WireGuard on AWS Lightsail.
 
----
-
 ## Network Topology
 
 {% include lightbox.html src="Topology_WireGuard.jpg" data="group" %}
@@ -31,8 +30,6 @@ Provided all these benefits, we will be setting up WireGuard on AWS Lightsail.
 - Mobile device running WireGuard.
 
 With everything setup, we should be able to push all internet traffic from our mobile device, out through the LightSail instances. The home network will also be accessible to the remotely connected mobile device. Our WireGuard client will be able to talk to services in the home network, such as DNS, file shares, etc.
-
----
 
 ## Configure WireGuard
 
@@ -146,8 +143,6 @@ On Step. 3 of the previous section, we also created a client's configuration fil
 
 At this point, all the internet traffic from the mobile device is being routed through WireGuard. This can be verified by checking it's public IP, to do this search for something like 'my ip' on Google, and this should be the IP of your Lightsail instance.
 
----
-
 ## Additional Notes
 
 Adding another client to the mix is easy.
@@ -191,7 +186,6 @@ We created a few files on the WireGuard server that are no longer needed. To del
 rm ~/{server_pub,server_pr,client1_pr,client1_pub}key
 rm ~/wg_client.conf
 ```
----
 
 ## Conclusion
 

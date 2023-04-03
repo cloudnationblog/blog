@@ -5,6 +5,7 @@ categories: ["Fortinet"]
 description: This blog post provides a comprehensive checklist of things to consider before deploying a FortiGate device in a production environment. The post covers key topics such as device connectivity to the internet, DNS settings on FortiGate, and the ports required by FortiGate. By following this checklist, you can ensure a smooth deployment process and avoid potential issues that could impact your production environment. The blog also includes helpful screenshots and explanations to make it easier for readers to understand the concepts discussed.
 header:
   teaser: /images/blog/Important_Fortiguard_dns.png
+  og_image: /images/blog/Important_Fortiguard_dns.png
 ---
 
 In this blog post, we will discuss certain things that should be the first things you check before deploying a FortiGate device in a production environment. Whether you are new to the Fortinet environment or have some experience managing devices, this blog will be helpful for you.
