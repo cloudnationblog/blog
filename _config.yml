@@ -122,3 +122,7 @@ social:
   type: Organization
   links:
     - "https://twitter.com/cloudnationblog"
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-NT5HD0NQ28"
