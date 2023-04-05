@@ -116,8 +116,8 @@ timezone: America/New_York
 atom_feed:
   hide: true
 breadcrumbs: true  # disabled by default
-head_scripts:
-  - /assets/js/lightbox.js
+# head_scripts:
+#   - /assets/js/lightbox.js
 social:
   type: Organization
   links:
