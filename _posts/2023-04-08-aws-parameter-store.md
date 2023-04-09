@@ -20,6 +20,7 @@ The Parameter Store is a versatile tool that can be used in a variety of situati
 **Simple bash script that calls an API:** Storing an API key as a SecureString in the Parameter Store allows you to change the key without modifying the script. This makes it easier to manage the key and reduces the risk of exposing it in the code.
 
 **Unique configuration for different environments:** Storing application configuration data in a hierarchical structure in the Parameter Store allows you to manage different configurations for different environments. This makes it easier to manage the configurations and reduces the risk of errors.
+
     {% include lightbox.html src="aws-parameter-store-hierarchy.png" data="group" %}
 
 ## Usage Examples
@@ -67,7 +68,7 @@ The parameter value is: Hello There!
 This example shows how to retrieve a parameter value using the AWS CLI. This is useful if you need to retrieve a parameter value from the command line or from a shell script.
 
 ```shell
-$parameterPath="parameter1"
+parameterPath="parameter1"
 echo "Parameter Path: $parameterPath"
 parameter_value=$(aws ssm get-parameter --name $parameterPath --query "Parameter.Value" --output text)
 echo "The parameter value is: $parameter_value"
