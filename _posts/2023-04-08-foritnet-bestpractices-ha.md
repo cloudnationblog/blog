@@ -26,4 +26,5 @@ In some cases, it may be necessary to remove a device from an HA configuration. 
 
 * After removing the device from HA, you can proceed to make the necessary modifications to the device. Before deploying the device, certain adjustments should be made, such as configuring the Reserve Management interface, hostname, and priority (if override is enabled) under the HA configuration.
 
-* To reintegrate the device into HA, connect the HA cable and log in to the GUI on the primary device. Wait for the configuration to synchronize between the devices, indicated by the devices being in sync. After this, proceed with plugging in the other cables.
+* To reintegrate the device into HA, connect the HA cable and log in to the GUI on the primary device. Wait for the configuration to synchronize between the devices, indicated by the devices being in sync. After this, proceed with plugging in the other cables. After plugging in all the cables and ensuring that the device is configured correctly, it's important to do a failover to test that all the services are working correctly on both devices. This will ensure that there are no issues with the HA configuration and that the devices are functioning as intended.
+
