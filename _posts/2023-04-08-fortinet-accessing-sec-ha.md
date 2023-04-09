@@ -5,7 +5,7 @@ categories: ["Fortinet"]
 description: Learn how to access a secondary device in an HA configuration by configuring reserve HA management on both devices. Follow our step-by-step guide with examples to gain access to the secondary device through the GUI
 
 header:
-   teaser: Secondary_dev_HA.png
+   teaser: Secondary-dev-HA.png
 
 
 ---
@@ -14,7 +14,7 @@ The blog post discusses how to access a secondary device in a High Availability 
 
 ### Demonstration
 
-{% include lightbox.html src="Secondary_dev_HA.png" data="group" %}
+{% include lightbox.html src="Secondary-dev-HA.png" data="group" %}
  
 After configuring a device in HA, if you attempt to access it using the IP address 192.168.1.1, you will only be able to access the primary device. This is because the primary device will synchronize its configuration and become the only firewall that can be accessed through the GUI.
 
