@@ -13,24 +13,27 @@ AWS Systems Manager Parameter Store is a powerful tool that allows you to store 
 
 ## Use Cases
 
-- Consider you have a serverless application running in AWS Lambda that takes a JSON input to perform an action. The JSON data can be passed by adding a JSON file to the Lambda function's package, but assuming this JSON data needs to be updated frequently, it would require the Lambda function to be re-deployed every time. Systems Manager can be a good tool here. Storing the JSON data in systems manager provides you more flexibility and security. The configuration data lives outside of the application code and the code can be more dynamic. Also in this case, now the same Lambda function can serve multiple application workloads by using a separate parameter store location for each.
-- A simple bash script that calls some sort of API and authenticates using an API key would need the API key to be supplied somehow. Hardcoding the key directly into the script may not be a good idea. Parameter Store allows storing the key as a `SecureString` that can be retrieved in the script. Again allowing the code to be independent of the API key. Changing the API key is just a matter of updating the parameter, no need to touch the script!
-- Another great feature that parameter store provides is the hierarchical parameter structure. You can create parameters as if they were nested. For instance, consider an application `myapplication` that uses a unique configuration for the Production and Development environments, the parameter structure now may look like:
-    - `/myapplication`
-    - `/myapplication/development`
-    - `/myapplication/production`
+The Parameter Store is a versatile tool that can be used in a variety of situations. Here are a few use cases that demonstrate its capabilities:
 
+**Serverless application running in AWS Lambda:** Storing JSON input data in the Parameter Store allows you to update the data without redeploying the Lambda function. This makes the application more dynamic and easier to manage. Consider you have a serverless application running in AWS Lambda that takes a JSON input to perform an action. The JSON data can be passed by adding a JSON file to the Lambda function's package, but assuming this JSON data needs to be updated frequently, it would require the Lambda function to be re-deployed every time. Systems Manager can be a good tool here. Storing the JSON data in systems manager provides you more flexibility and security. The configuration data lives outside of the application code and the code can be more dynamic. Also in this case, now the same Lambda function can serve multiple application workloads by using a separate parameter store location for each.
+
+**Simple bash script that calls an API:** Storing an API key as a SecureString in the Parameter Store allows you to change the key without modifying the script. This makes it easier to manage the key and reduces the risk of exposing it in the code.
+
+**Unique configuration for different environments:** Storing application configuration data in a hierarchical structure in the Parameter Store allows you to manage different configurations for different environments. This makes it easier to manage the configurations and reduces the risk of errors.
     {% include lightbox.html src="aws-parameter-store-hierarchy.png" data="group" %}
 
 ## Usage Examples
+
 
 Let's create `parameter1` in parameter store.
 
 {% include lightbox.html src="aws-parameter-store-parameter1.png" data="group" %}
 
-### Parameter Store with boto3
+Here are a few examples of how to use the Parameter Store  and retrieve the above parameter using different programming languages:
 
-This example is for a function written in `Python3` that calls parameter store using the `boto3` library.
+### Python3 with boto3
+
+This example shows how to retrieve a parameter value using the `boto3` library in `Python3`. This is useful if you need to integrate the Parameter Store into your Python application.
 
 ```python
 import boto3
@@ -59,9 +62,9 @@ The parameter value is: Hello There!
 
 [boto3 SSM Documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html)
 
-### Parameter Store with AWS CLI
+### AWS CLI
 
-The same result as the above python function can be achieved by running the following shell commands:
+This example shows how to retrieve a parameter value using the AWS CLI. This is useful if you need to retrieve a parameter value from the command line or from a shell script.
 
 ```shell
 $parameterPath="parameter1"
@@ -79,19 +82,22 @@ The parameter value is: Hello There!
 
 ## Additional Notes
 
-- You can also add a `JSON` object to parameter store. However, be considerate of the the maximum allowed characters limit for the parameter. Removing the JSON whitespace and indentions will make some room as well.
-- Values of type `SecureString` should be decrypted upon retrieval.
-    - In python:
-        ```python
-        parameter = ssm.get_parameter(
-            Name=path, WithDecryption=True
-        )
-        ```
-    - AWS CLI:
-        ```shell
-        aws ssm get-parameter --name $parameterPath --query "Parameter.Value" --with-decryption --output text
-        ```
-- If you are strictly looking for a tool to manage secrets and only secrets, *AWS Secrets Manager* may be a better service for the job.
+**JSON objects:** You can store JSON objects in the Parameter Store, but be aware of the maximum allowed characters limit for the parameter. Removing the JSON whitespace and indentations will free up space.
+
+**SecureString decryption:** If you store a parameter value as a `SecureString`, be sure to decrypt it upon retrieval. This can be done using the `WithDecryption` parameter in boto3 or the `--with-decryption` flag in the AWS CLI.
+
+- Python3:
+    ```python
+    parameter = ssm.get_parameter(
+        Name=path, WithDecryption=True
+    )
+    ```
+- AWS CLI:
+    ```shell
+    aws ssm get-parameter --name $parameterPath --query "Parameter.Value" --with-decryption --output text
+    ```
+
+> If you are looking for a tool to manage secrets and only secrets, AWS Secrets Manager may be a better service for the job. It provides a centralized store for secrets like API keys, database passwords, and SSH keys, and allows you to rotate them automatically.
 
 ## Summary
 
