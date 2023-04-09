@@ -1,6 +1,6 @@
 ---
 title:  "Configuring Reserve HA Management: How to Access a Secondary Device"
-last_modified_at: 2023-04-02
+last_modified_at: 2023-04-09
 categories: ["Fortinet"]
 description: Learn how to access a secondary device in an HA configuration by configuring reserve HA management on both devices. Follow our step-by-step guide with examples to gain access to the secondary device through the GUI
 
