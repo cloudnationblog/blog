@@ -52,7 +52,7 @@ Semaphore requires the OIDC provider URL for Okta. To obtain this URL, navigate 
    }
    ```
 2. Restart Semaphore.
-3. Browser to the Semaphore web page and it should now have a button to **SIGN IN WITH OKTA**.
+3. Browse to the Semaphore web page and it should now have a button to **SIGN IN WITH OKTA**.
 {% include lightbox.html src="semaphore-okta-sso.png" data="group" %}
 
 The sign-in process will re-direct to Okta and then back to Semaphore. Upon successful authentication, a new user will be created automatically for the validated username, if it does not already exist. Following user creation, an administrator can then assign the requisite permissions to the newly established user account.
