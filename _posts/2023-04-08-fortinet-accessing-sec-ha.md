@@ -4,7 +4,7 @@ last_modified_at: 2023-04-09
 categories: ["Fortinet"]
 description: Learn how to access a secondary device in an HA configuration by configuring reserve HA management on both devices. Follow our step-by-step guide with examples to gain access to the secondary device through the GUI
 header:
-   teaser: Secondary-dev-HA.png
+   teaser: /images/blog/Secondary-dev-HA.png
 ---
 
 The blog post discusses how to access a secondary device in a High Availability (HA) configuration. Typically, in an HA configuration, only the primary device can be accessed via the GUI. However, there may be situations where it's necessary to access the secondary device through the GUI. The post explains the configuration steps required to access the secondary device by configuring reserve HA management on both devices. It provides an example of the HA configuration on the primary and secondary devices, along with the configuration of port3 on both devices. Once reserve HA management is configured, the secondary device can be accessed using HA.In the example below, we will explore how to access a secondary device in an HA configuration.

@@ -40,15 +40,15 @@ Semaphore requires the OIDC provider URL for Okta. To obtain this URL, navigate 
    - `name_claim`: By default, the `username` and the `name` are both set to the same claim(attribute) -> `preferred_username`. This configuration will generate a Semaphore user with both the username and display name typically reflecting the user's email.. To use the Okta display name as the display name on semaphore, this key can be set to use the `name` attribute sent by Okta.
    ```json
    {
-   "oidc_providers": {
-      "okta": {
-         "display_name": "Sign in with Okta",
-         "provider_url": "https://dev-xxxxx.okta.com/oauth2/default",
-         "client_id": "0oaaor46qeG99JPDD5d7",
-         "client_secret": "--rOEm_9Vy8bxZ7i2EwsjoWYEAhkS5wWJPyM7mKwuEdk6L8-YswpWxegka_pwNCL",
-         "name_claim": "name"
+      "oidc_providers": {
+         "okta": {
+               "display_name": "Sign in with Okta",
+               "provider_url": "https://dev-xxxxx.okta.com/oauth2/default",
+               "client_id": "0oaaor46qeG99JPDD5d7",
+               "client_secret": "--rOEm_9Vy8bxZ7i2EwsjoWYEAhkS5wWJPyM7mKwuEdk6L8-YswpWxegka_pwNCL",
+               "name_claim": "name"
+         }
       }
-   }
    }
    ```
 2. Restart Semaphore.
