@@ -10,7 +10,6 @@ header:
 
 AWS Systems Manager Parameter Store is a powerful tool that allows you to store and manage configuration data for your applications. With Parameter Store, you can securely store secrets, configuration values, and other data that your applications need, and access them from your code at runtime. This provides more flexibility, security, and scalability for your applications, and makes it easier to manage configuration data across multiple services and environments.
 
-
 ## Use Cases
 
 The Parameter Store is a versatile tool that can be used in a variety of situations. Here are a few use cases that demonstrate its capabilities:
@@ -21,10 +20,9 @@ The Parameter Store is a versatile tool that can be used in a variety of situati
 
 **Unique configuration for different environments:** Storing application configuration data in a hierarchical structure in the Parameter Store allows you to manage different configurations for different environments. This makes it easier to manage the configurations and reduces the risk of errors.
 
-    {% include lightbox.html src="aws-parameter-store-hierarchy.png" data="group" %}
+{% include lightbox.html src="aws-parameter-store-hierarchy.png" data="group" %}
 
 ## Usage Examples
-
 
 Let's create `parameter1` in parameter store.
 
@@ -88,17 +86,20 @@ The parameter value is: Hello There!
 **SecureString decryption:** If you store a parameter value as a `SecureString`, be sure to decrypt it upon retrieval. This can be done using the `WithDecryption` parameter in boto3 or the `--with-decryption` flag in the AWS CLI.
 
 - Python3:
-    ```python
-    parameter = ssm.get_parameter(
-        Name=path, WithDecryption=True
-    )
-    ```
-- AWS CLI:
-    ```shell
-    aws ssm get-parameter --name $parameterPath --query "Parameter.Value" --with-decryption --output text
-    ```
 
-> If you are looking for a tool to manage secrets and only secrets, AWS Secrets Manager may be a better service for the job. It provides a centralized store for secrets like API keys, database passwords, and SSH keys, and allows you to rotate them automatically.
+```python
+parameter = ssm.get_parameter(
+    Name=path, WithDecryption=True
+)
+```
+- AWS CLI:
+
+```shell
+aws ssm get-parameter --name $parameterPath --query "Parameter.Value" --with-decryption --output text
+```
+
+If you are looking for a tool to manage secrets and only secrets, AWS Secrets Manager may be a better service for the job. It provides a centralized store for secrets like API keys, database passwords, and SSH keys, and allows you to rotate them automatically.
+{: .notice--info}
 
 ## Summary
 

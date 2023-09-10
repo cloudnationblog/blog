@@ -83,4 +83,4 @@ Member(2): interface: port2, gateway: x.x.x.x, priority: 0, weight: 0
 
 ### `sdwan_service_id`
 
-The SDWAN_service_id specifies which SDWAN rule the session is hitting. In this case ,SDWAN_service_id=0 which states that it is using implicit SDWAN rule.
+The SDWAN_service_id specifies which SDWAN rule the session is hitting. In this case, SDWAN_service_id=0 which states that it is using implicit SDWAN rule.

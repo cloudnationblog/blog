@@ -16,7 +16,9 @@ As of [PR #1213](https://github.com/ansible-semaphore/semaphore/pull/1213), Sema
 
 1. Login to the Okta Admin portal.
 2. Within the **Applications** section, create a new app integration.
-{% include lightbox.html src="okta-semaphore-app-integration.png" data="group" %}
+
+   {% include lightbox.html src="okta-semaphore-app-integration.png" data="group" %}
+
 3. Choose `OIDC - OpenID Connect` followed by `Web Application` from the available options.
 4. On the configuration page:
    - App integration name: `Ansible Semaphore`
@@ -38,6 +40,7 @@ Semaphore requires the OIDC provider URL for Okta. To obtain this URL, navigate 
    - `client_id`: Client ID obtained from Step 6 of the Okta configuration.
    - `client_secret`: Client Secret obtained from Step 6 of the Okta configuration.
    - `name_claim`: By default, the `username` and the `name` are both set to the same claim(attribute) -> `preferred_username`. This configuration will generate a Semaphore user with both the username and display name typically reflecting the user's email.. To use the Okta display name as the display name on semaphore, this key can be set to use the `name` attribute sent by Okta.
+
    ```json
    {
       "oidc_providers": {
@@ -51,9 +54,11 @@ Semaphore requires the OIDC provider URL for Okta. To obtain this URL, navigate 
       }
    }
    ```
+
 2. Restart Semaphore.
 3. Browse to the Semaphore web page and it should now have a button to **SIGN IN WITH OKTA**.
-{% include lightbox.html src="semaphore-okta-sso.png" data="group" %}
+
+   {% include lightbox.html src="semaphore-okta-sso.png" data="group" %}
 
 The sign-in process will re-direct to Okta and then back to Semaphore. Upon successful authentication, a new user will be created automatically for the validated username, if it does not already exist. Following user creation, an administrator can then assign the requisite permissions to the newly established user account.
 

@@ -26,24 +26,29 @@ The Compute Resource is necessary for Foreman to be able to interact with the VM
 
 We will be using the VMWare compute resource, but first the plugin will have to be installed. On the foreman CLI:
 
-{% highlight shell %}
+```shell
 yum install -y foreman-vmware
 ##Restart Foreman to activate the Plugin
 systemctl restart httpd
-{% endhighlight %}
+```
 
 1. On the Foreman Web GUI, Infrastructe&gt;Compute Resources&gt;Create Compute Resource.{% include lightbox.html src="image-1571557075501.png" data="group" %}
 2. Enter the information for the vCenter appliance. Click **Test Connection** after filling in the credentials and it will pick up the available datacenters.{% include lightbox.html src="image-1571557286403.png" data="group" %}
 3. Select the Default location and Organization or the desired one if there's multiple. **Submit**.
 4. Select the added Compute Resource. Under **Compute Profiles**, select **1-Small.**
-5. Pre-define the VM settings to be used at the time of creation of instance on vSphere.{% include lightbox.html src="image-1571562848357.png)![](/images/blog/image-1571562931088.png" data="group" %}
+5. Pre-define the VM settings to be used at the time of creation of instance on vSphere.
+
+   {% include lightbox.html src="image-1571562848357.png" data="group" %}
 
 ### Domain
 
 Domain information is needed to create proper host entries in DHCP and DNS, and also for the host names. The domain will automatically be added as a suffix to the VM's name.
 
 1. Infrastructure&gt;Domain&gt;Create Domain.
-2. Enter the full DNS domain name of the network, and select the DNS proxy pointing to the DNS server responsible for this domain. {% include lightbox.html src="image-1571558539933.png" data="group" %}
+2. Enter the full DNS domain name of the network, and select the DNS proxy pointing to the DNS server responsible for this domain.
+
+   {% include lightbox.html src="image-1571558539933.png" data="group" %}
+
 3. Select the default location and organization. **Submit.**
 
 ### Subnets
@@ -53,7 +58,10 @@ The network information is required by the DHCP smart-proxy to find unused IP ad
 1. Infrastructure&gt;Subnets&gt;Create Subnet.
 2. Enter the information under the **Subnet**. Change the network address with your preferred network address and select DCHP for **IPAM** and **Boot Mode.** You can also enter the Start and End IP addresses for the DHCP proxy to look for unused IP addresses only in that range. {% include lightbox.html src="image-1571557887179.png" data="group" %}
 3. On the **Domain** tab, select the domain created in the last step and move it to the right.
-4. On the **Proxies** tab, select the proxies that you wish to use to serve the defined purposes. **Note:** Each drop-down will list only the proxy which supports the defined proxy feature. {% include lightbox.html src="image-1571558098684.png" data="group" %}
+4. On the **Proxies** tab, select the proxies that you wish to use to serve the defined purposes. **Note:** Each drop-down will list only the proxy which supports the defined proxy feature.
+
+   {% include lightbox.html src="image-1571558098684.png" data="group" %}
+
 5. Select the default location and organization. **Submit.**
 
 ## Provisioning Setup
@@ -64,15 +72,22 @@ The Provisioning Templates are the core of Foreman’s flexibility to deploy the
 
 The CentOS templates used are created from Kickstart scripts, with added ERB variables that can be customized though parameters. We will use the basic templates for the install.
 
-1. **Clone** the **Kickstart** **default**, **Kickstart** **default** **finish** and **Kickstart** **default** **PXELinux** templates. {% include lightbox.html src="image-1571559421606.png" data="group" %}
-2. Type a new name and Submit. We will make changes in the next steps. Do the same for all the cloned templates{% include lightbox.html src="image-1571559647609.png" data="group" %}
+1. **Clone** the **Kickstart** **default**, **Kickstart** **default** **finish** and **Kickstart** **default** **PXELinux** templates.
+
+   {% include lightbox.html src="image-1571559421606.png" data="group" %}
+
+2. Type a new name and Submit. We will make changes in the next steps. Do the same for all the cloned templates.
+
+   {% include lightbox.html src="image-1571559647609.png" data="group" %}
 
 ### Partition Table
 
 The partition table template contains a simple command to create the defined partitions.
 
 1. Clone the **Kickstart default** partition table.
-2. Enter a new name, and select the OS Family as ****Red Hat. Submit.****{% include lightbox.html src="image-1571560232505.png" data="group" %}
+2. Enter a new name, and select the OS Family as ***Red Hat. Submit.***
+
+   {% include lightbox.html src="image-1571560232505.png" data="group" %}
 
 ### Architecture
 
@@ -94,21 +109,33 @@ The installation media contains the Operating System files. When the OS is PXE b
 **Create Installation Media:**
 
 1. Hosts&gt;Installation Media&gt;Create Medium.
-2. Add the FTP address of the extracted folder. Select OS family as **Red Hat.**{% include lightbox.html src="image-1571561780020.png" data="group" %}
+2. Add the FTP address of the extracted folder. Select OS family as **Red Hat.**
+
+   {% include lightbox.html src="image-1571561780020.png" data="group" %}
 
 ### Operating System
 
 The Operating System section brings all different OS specific configurations together. We will create a new operating system resource for CentOS 8.
 
 1. Hosts&gt;Operating Systems&gt;Create Operating System.
-2. Enter the OS details, family and select the architecture. This information must correct as it will be by the Provisioning Templates. {% include lightbox.html src="image-1571562100126.png" data="group" %}
-3. Select Partition Table. {% include lightbox.html src="image-1571562170971.png" data="group" %}
-4. Select the Local installation Media. {% include lightbox.html src="image-1571562241765.png" data="group" %}
+2. Enter the OS details, family and select the architecture. This information must correct as it will be by the Provisioning Templates.
+
+   {% include lightbox.html src="image-1571562100126.png" data="group" %}
+
+3. Select Partition Table.
+   {% include lightbox.html src="image-1571562170971.png" data="group" %}
+
+4. Select the Local installation Media.
+
+   {% include lightbox.html src="image-1571562241765.png" data="group" %}
+
 5. **Submit.**
 6. We will now setup the association between the Provision Templates and Operating System.
-    1. Go to Hosts&gt;Provisioning Templates&gt;*NewTempalteName*&gt;Association. Select the newly added Operating System and move it to the right. Do this for all the three cloned templates.
-    2. Back to Hosts&gt;Operating Systems. Select the newly added OS.
-    3. Under Templates, select all the relevant templates and complete the association by clicking **Submit.**{% include lightbox.html src="image-1571562521812.png" data="group" %}
+   1. Go to Hosts&gt;Provisioning Templates&gt;*NewTempalteName*&gt;Association. Select the newly added Operating System and move it to the right. Do this for all the three cloned templates.
+   2. Back to Hosts&gt;Operating Systems. Select the newly added OS.
+   3. Under Templates, select all the relevant templates and complete the association by clicking **Submit.**
+    
+      {% include lightbox.html src="image-1571562521812.png" data="group" %}
 
 ## Provisioning
 
@@ -118,24 +145,43 @@ Before, we go ahead and create the new host, let's first create a Host Group and
 
 1. Configure&gt;Host Groups&gt;Create Host Group.
 2. Enter the information created in the previous sections under all tabs.
-    1. Host Group:
+   1. Host Group:
 
-        {% include lightbox.html src="image-1571563738189.png" data="group" %}
-    2. Network: {% include lightbox.html src="image-1571563615098.png" data="group" %}
-    3. Operating System: {% include lightbox.html src="image-1571563817678.png" data="group" %}Set the Root Password. The PXE loader selection determines the PXE config file to be used for the instance. This file is then added to the instance's directory under pxelinux.cfg directory.
-    4. **Parameters** are user defined properties. The parameters that a template accepts are mentioned in the template code. We will add some custom settings which will then be set inside the template during provisioning. {% include lightbox.html src="image-1571564051727.png" data="group" %}Following is an example of a Template which lists the parameters it accepts:
+      {% include lightbox.html src="image-1571563738189.png" data="group" %}
 
-        {% include lightbox.html src="image-1571564150394.png" data="group" %}
-    5. **Submit.**
+   2. Network:
+   
+      {% include lightbox.html src="image-1571563615098.png" data="group" %}
+
+   3. Operating System:
+
+      {% include lightbox.html src="image-1571563817678.png" data="group" %}
+      
+      Set the Root Password. The PXE loader selection determines the PXE config file to be used for the instance. This file is then added to the instance's directory under pxelinux.cfg directory.
+
+   4. **Parameters** are user defined properties. The parameters that a template accepts are mentioned in the template code. We will add some custom settings which will then be set inside the template during provisioning. 
+   
+      {% include lightbox.html src="image-1571564051727.png" data="group" %}
+      
+      Following is an example of a Template which lists the parameters it accepts:
+
+      {% include lightbox.html src="image-1571564150394.png" data="group" %}
+
+   5. **Submit.**
 
 ### Create Host
 
-1. Hosts&gt;Create Host.
-2. Enter the Hostname. Select the Host Group and it should automatically fill in all the information under all tabs. {% include lightbox.html src="image-1571564378732.png" data="group" %}
+1. Hosts>Create Host.
+2. Enter the Hostname. Select the Host Group and it should automatically fill in all the information under all tabs. 
 
-    {% include lightbox.html src="image-1571564454063.png" data="group" %}
+   {% include lightbox.html src="image-1571564378732.png" data="group" %}
+
+   {% include lightbox.html src="image-1571564454063.png" data="group" %}
+
 3. **Submit.**
-4. <span style="text-decoration: underline;">**Foreman starts the build process.**</span>{% include lightbox.html src="image-1571564516704.png" data="group" %}
+4. **Foreman starts the build process.**
+
+   {% include lightbox.html src="image-1571564516704.png" data="group" %}
 
 ## Additional Configurations
 
@@ -143,15 +189,21 @@ Before, we go ahead and create the new host, let's first create a Host Group and
 
 To disable the root user, and instead create another system user with root permissions:
 
-- Hosts&gt;Provisioning Templates. Select your provisioning template that was cloned from **Kickstart default.**
-- Replace line 84 with the following. Replace the user name with your specification. The root password will be the one entered during the Host Group creation. `user --name=myadmin --groups=wheel --iscrypted --password=<%= root_pass %>`---------------------------------------------**Original Line**: `rootpw --iscrypted <%= root_pass %>`
+- Host>Provisioning Templates. Select your provisioning template that was cloned from **Kickstart default.**
+- Replace line 84 with the following. Replace the user name with your specification. The root password will be the one entered during the Host Group creation. 
+
+   `user --name=myadmin --groups=wheel --iscrypted --password=<%= root_pass %>`
+   
+   **Original Line**: `rootpw --iscrypted <%= root_pass %>`
 
 ### Enable Puppet6
 
 The URL to download the Puppet 6 repository inside the **puppetlabs6\_repo snippet** which is called from the provisioning templates is **wrong.** To correct the error and enable Puppet 6 edit the puppetlabs6\_repo snippet followed by the addition of paramter in the Host Group as show in the previous seciton.
 
 - Hosts&gt;Provisioning Templates&gt;puppetlabs6\_repo
-- Change the **repo\_name** and **repo\_subdir** in the Puppet 6 section as follows: {% include lightbox.html src="image-1571565660630.png" data="group" %}
+- Change the **repo\_name** and **repo\_subdir** in the Puppet 6 section as follows:
+    
+   {% include lightbox.html src="image-1571565660630.png" data="group" %}
 
-    The Hosts should now be provisioned with an updated version of Puppet.
+The Hosts should now be provisioned with an updated version of Puppet.
 

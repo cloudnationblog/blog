@@ -13,11 +13,11 @@ A complete Foreman Installation includes the following components:
 - Puppet Master - Configuration management server. Maintains desired state for all nodes.
 - Compute Resource - Base Hyper-visor that controls all virtual machines
 - Smart-Proxy - Smart-Proxies are extensions of Foreman which talk to different components in order to perform the operations requested by the Foreman server. For instance, a foreman DHCP proxy will be responsible for configuring DHCP records of the nodes managed by Foreman. There's a wide range of plugins available for all kinds of Smart-Proxies to work with different service providers. Smart-proxies are very crucial for successfully creating new Virtual Machine instances from inside Foreman. Following are the available proxies;
-    - DNS - Manages DNS Records of nodes.
-    - DHCP - Manages DHCP Records of nodes.
-    - TFTP - Stores PXE boot files.
-    - Puppet CA - Manages certificates of nodes.
-    - Puppet - Manages configuration of nodes after they have been provisioned.
+   - DNS - Manages DNS Records of nodes.
+   - DHCP - Manages DHCP Records of nodes.
+   - TFTP - Stores PXE boot files.
+   - Puppet CA - Manages certificates of nodes.
+   - Puppet - Manages configuration of nodes after they have been provisioned.
 
 ![Foreman Architecture](https://theforeman.org/static/images/foreman_architecture.png)
 
@@ -57,9 +57,9 @@ The following operations are carried out in a sequential manner whenever a Virtu
 2. Create a **host-specific TFTP configuration** file in */var/lib/tftpboot/pxelinux.cfg/01-XX-XX-XX-XX-XX-XX*, named based off of the **MAC address**, using the associated PXE template.
 3. Call *mkdir -p /var/lib/tftpboot/boot* if it does not already exist.
 4. **Download** the OS specific kernel and initrd files using wget.
-    1. The download URLs are derived from the **installation media path**, and OS specific log (see *app/models/redhat.rb* and *debian.rb* in foreman for examples of the gory details).
-    2. The *debian.rb* file tries to guess if you want Ubuntu or Debian, based on the Name you give to your OS in the UI. If the name does not contain ‘ubuntu’ or ‘debian’, it may default to debian, hence fail to fetch the kernel/initrd.
-    3. cd into /var/lib/tftpboot/boot and check that the filesizes are not zero. Check /var/log/foreman-proxy/proxy.log for possible errors.
+   1. The download URLs are derived from the **installation media path**, and OS specific log (see *app/models/redhat.rb* and *debian.rb* in foreman for examples of the gory details).
+   2. The *debian.rb* file tries to guess if you want Ubuntu or Debian, based on the Name you give to your OS in the UI. If the name does not contain ‘ubuntu’ or ‘debian’, it may default to debian, hence fail to fetch the kernel/initrd.
+   3. cd into /var/lib/tftpboot/boot and check that the filesizes are not zero. Check /var/log/foreman-proxy/proxy.log for possible errors.
 5. The exact wget command is `wget --no-check-certificate -nv -c <src> -O "<destination>"`
 6. At this point, the TFTP state is ready for the **installation** process.
 7. Once the host has completed installation, the OS specific installation script should inform foreman by retrieving the **built URL**.
