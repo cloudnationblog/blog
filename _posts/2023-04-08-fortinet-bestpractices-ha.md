@@ -1,5 +1,5 @@
 ---
-title:  "Removing a Device from an FGT HA Configuration: Best Practices"
+title:  "Removing a Device from a FGT HA Configuration: Best Practices"
 last_modified_at: 2023-04-08
 categories: ["Fortinet"]
 description: Learn the best practices for breaking an FGT HA and removing a device from the cluster without causing split breaks or disruptions to production. Follow our step-by-step guide with examples to ensure a smooth transition, from checking the primary device to reintegrating the device into HA. Get the most out of your FGT HA configuration with CloudNation Blog.
